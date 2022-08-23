@@ -17,7 +17,7 @@ const overFive = numbers.filter(index => index > 5);
 const startsWithE = names.filter(value => value.startsWith('E'));
 const haveD = names.filter(values => {
   const lcString = values.toLowerCase();
-  return lcString.includes('e');
+  return lcString.includes('d');
 });
 
 console.log(`Value of evenNumbers: ${evenNumbers}`);
