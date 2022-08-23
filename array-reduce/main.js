@@ -17,13 +17,13 @@ const traits = [
   { trainer: 'ash' }
 ];
 
-const sum = numbers.reduce((a, b) => a + b);
-const product = numbers.reduce((a, b) => a * b);
-const balance = account.reduce((a, b) => {
-  b.type === 'deposit' ? a += b.amount : a -= b.amount;
-  return a;
+const sum = numbers.reduce((init, add) => init + add);
+const product = numbers.reduce((init, multiply) => init * multiply);
+const balance = account.reduce((balance, transaction) => {
+  transaction.type === 'deposit' ? balance += transaction.amount : balance -= transaction.amount;
+  return balance;
 }, 0);
-const composite = traits.reduce((a, b) => Object.assign(a, b));
+const composite = traits.reduce((firstObj, multipleObjs) => Object.assign(firstObj, multipleObjs));
 
 console.log('Value of sum:', sum);
 console.log('Value of product:', product);
