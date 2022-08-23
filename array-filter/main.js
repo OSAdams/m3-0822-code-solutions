@@ -20,7 +20,7 @@ const haveD = names.filter(values => {
   return lcString.includes('d');
 });
 
-console.log(`Value of evenNumbers: ${evenNumbers}`);
-console.log(`Value of overFive: ${overFive}`);
-console.log(`Value of startsWithE: ${startsWithE}`);
-console.log(`Value of haveD: ${haveD}`);
+console.log('Value of evenNumbers:', evenNumbers);
+console.log('Value of overFive:', overFive);
+console.log('Value of startsWithE:', startsWithE);
+console.log('Value of haveD:', haveD);
