@@ -23,11 +23,21 @@ console.log('Value of startsWithE:', startsWithE);
 console.log('Value of haveD:', haveD);
 
 function newFilter(array, predicate) {
+  const arrayParameter = array;
   const returnArray = [];
-  for (let i = 0; i < array.length; i++) {
-    if (predicate) {
-      returnArray.push(array[i]);
+  for (let i = 0; i < arrayParameter.length; i++) {
+    if (predicate(arrayParameter[i])) {
+      returnArray.push(arrayParameter[i]);
     }
   }
   return returnArray;
 }
+
+const newFilterTestCases = [
+  newFilter(numbers, index => index % 2 === 0),
+  newFilter(numbers, index => index > 5),
+  newFilter(names, value => value.startsWith('E')),
+  newFilter(names, values => values.toLowerCase().includes('d'))
+];
+
+console.log('Value of newFilterTestCases:', newFilterTestCases);
