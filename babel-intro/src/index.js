@@ -14,5 +14,31 @@ const baz = () => {
 
 baz();
 
-const helloWorld = () => 'Hello World';
-helloWorld();
+class Nifty {
+  constructor(para1, para2, para3) {
+    this.para1 = para1;
+    this.para2 = para2;
+    this.para3 = para3;
+  }
+
+  onCall() {
+    console.log(this.para1);
+  }
+
+  onSnooze() {
+    console.log(this.para2);
+  }
+
+  onTendies() {
+    console.log(this.para3);
+  }
+}
+
+const helloWorld = new Nifty('Shifty', 'Sleepy', 'Honey Mussy');
+const fooBar = () => {
+  console.log(helloWorld);
+};
+
+helloWorld.onCall();
+helloWorld.onSnooze();
+helloWorld.onTendies();
