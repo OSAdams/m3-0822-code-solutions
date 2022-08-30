@@ -13,3 +13,6 @@ const baz = () => {
 };
 
 baz();
+
+const helloWorld = () => 'Hello World';
+helloWorld();
