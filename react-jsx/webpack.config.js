@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'none',
   resolve: {
     extensions: ['.js', '.jsx']
   },
@@ -12,9 +11,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             plugins: [
-              '@babel/plugin-transform-react-jsx',
-              '@babel/plugin-transform-arrow-functions',
-              '@babel/plugin-transform-block-scoping'
+              '@babel/plugin-transform-react-jsx'
             ]
           }
         }
