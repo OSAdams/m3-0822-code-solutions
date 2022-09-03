@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.indigo {
+  background-color: indigo;
+  color: #fefefe;
+}
+
+.purple {
+  background-color: purple;
+  color: #fefefe;
+}
+
+.violet {
+  background-color: violet;
+  color: #fefefe;
+}
+
+.orange {
+  background-color: orange;
+  color: #fefefe;
+}
+
+.yellow {
+  background-color: yellow;
+  color: #fefefe;
+}
+
+.white {
+  background-color: white;
+  color: #fefefe;
+}
