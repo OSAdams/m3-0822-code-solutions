@@ -11,6 +11,11 @@ button {
   cursor: pointer;
 }
 
+.black {
+  background-color: #0e0e0e;
+  color: #fefefe;
+}
+
 .indigo {
   background-color: indigo;
   color: #fefefe;
@@ -28,15 +33,15 @@ button {
 
 .orange {
   background-color: orange;
-  color: #fefefe;
+  color: #0e0e0e;
 }
 
 .yellow {
   background-color: yellow;
-  color: #fefefe;
+  color: #0e0e0e;
 }
 
 .white {
   background-color: white;
-  color: #fefefe;
+  color: #0e0e0e;
 }
