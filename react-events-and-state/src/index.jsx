@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/client';
 class CustomButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isClicked: false };
     this.handleClick = this.handleClick.bind(this);
+    this.state = { isClicked: false };
   }
 
   handleClick() {
@@ -17,7 +17,7 @@ class CustomButton extends React.Component {
   render() {
     return (
       <button onClick={ this.handleClick }>
-        { this.state.isclicked ? 'Thanks!' : 'Click Me!' }
+        { this.state.isClicked ? 'Thanks!' : 'Click Me!' }
       </button>
     );
   }
