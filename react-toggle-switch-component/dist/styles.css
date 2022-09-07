@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fefefe;
+}
+
+.switch-container {
+  width: 10rem;
+  height: 3rem;
+  background-color: rgb(68 68 68);
+  border-radius: 2rem;
+  display: flex;
+}
+
+.toggle-switch {
+  width: 33.33%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #d1d1d1;
+  border: solid 0.3rem #fefefe;
+  border-radius: 2rem;
+}
+
+.on {
+  justify-content: flex-end;
+}
