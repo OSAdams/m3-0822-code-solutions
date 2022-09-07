@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ToggleSwitch from './toggle-switch';
 
-class MainContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      placeHolder: true
-    };
-  }
+class Main extends React.Component {
 
   render() {
-    return <ToggleSwitch />;
+    return (
+      <div className='main'>
+        <ToggleSwitch />
+      </div>
+    );
   }
 }
 
-const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(<MainContainer />);
+const element = <Main />;
+const container = document.querySelector('#root');
+const root = ReactDOM.createRoot(container);
+root.render(element);

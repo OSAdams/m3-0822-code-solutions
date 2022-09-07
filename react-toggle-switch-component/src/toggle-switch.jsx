@@ -7,7 +7,7 @@ export default class ToggleSwitch extends React.Component {
       switchOn: false
     };
     this.handleClick = this.handleClick.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
+    this.switchToggle = this.switchToggle.bind(this);
   }
 
   handleClick() {
@@ -16,12 +16,12 @@ export default class ToggleSwitch extends React.Component {
     }));
   }
 
-  handleToggle() {
-    return !this.state.switchOn ? 'off' : 'on';
+  switchToggle() {
+    return !this.state.switchOn ? '' : 'on';
   }
 
   render() {
-    const toggleStatus = this.handleToggle();
+    const toggleStatus = this.switchToggle();
     return (
       <div className={ `switch-container ${toggleStatus}` }>
         <div className={ `toggle-switch ${toggleStatus}` } onClick={ this.handleClick }></div>
