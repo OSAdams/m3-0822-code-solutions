@@ -11,11 +11,7 @@ class MainContainer extends React.Component {
   }
 
   render() {
-    return (
-      <>
-        <ToggleSwitch />
-      </>
-    );
+    return <ToggleSwitch />;
   }
 }
 

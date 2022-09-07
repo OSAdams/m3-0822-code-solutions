@@ -22,16 +22,10 @@ export default class ToggleSwitch extends React.Component {
 
   render() {
     const toggleStatus = this.handleToggle();
-    // eslint-disable-next-line
-    console.log(this.state);
-    // eslint-disable-next-line
-    console.log(toggleStatus);
     return (
-      <>
-        <div className={` switch-container ${toggleStatus}` }>
-        <div className="toggle-switch" onClick={ this.handleClick }></div>
+      <div className={ `switch-container ${toggleStatus}` }>
+        <div className={ `toggle-switch ${toggleStatus}` } onClick={ this.handleClick }></div>
       </div>
-      </>
     );
   }
 }

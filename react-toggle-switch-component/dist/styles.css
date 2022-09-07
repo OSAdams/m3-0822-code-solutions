@@ -10,7 +10,9 @@
   height: 3rem;
   background-color: rgb(68 68 68);
   border-radius: 2rem;
-  display: flex;
+  transition: 750ms;
+  position: relative;
+  margin: 2.5rem;
 }
 
 .toggle-switch {
@@ -20,8 +22,16 @@
   background-color: #d1d1d1;
   border: solid 0.3rem #fefefe;
   border-radius: 2rem;
+  position: absolute;
+  left: 0;
+  transition: 750ms;
 }
 
 .on {
-  justify-content: flex-end;
+  background-color: #d1d1d1;
+}
+
+.toggle-switch.on {
+  background-color: rgb(0 180 0);
+  transform: translateX(200%);
 }
