@@ -24,8 +24,9 @@ export default class HotButton extends React.Component {
   }
 
   render() {
+    const color = this.whatColor();
     return (
-      <button onClick={this.handleClick} className={this.whatColor()}>
+      <button onClick={this.handleClick} className={`${color}`}>
         Hot Button
       </button>
     );
