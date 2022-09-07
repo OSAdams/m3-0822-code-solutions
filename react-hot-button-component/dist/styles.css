@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.black {
+  background-color: #0e0e0e;
+  color: #fefefe;
+}
+
+.indigo {
+  background-color: indigo;
+  color: #fefefe;
+}
+
+.purple {
+  background-color: purple;
+  color: #fefefe;
+}
+
+.violet {
+  background-color: violet;
+  color: #fefefe;
+}
+
+.orange {
+  background-color: orange;
+  color: #0e0e0e;
+}
+
+.yellow {
+  background-color: yellow;
+  color: #0e0e0e;
+}
+
+.white {
+  background-color: white;
+  color: #0e0e0e;
+}
