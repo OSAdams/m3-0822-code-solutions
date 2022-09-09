@@ -23,7 +23,9 @@ export default class StopWatch extends React.Component {
   }
 
   handleReset() {
-    return false;
+    if (!this.state.isTicking) {
+      return this.setState({ count: 0 });
+    }
   }
 
   render() {
@@ -32,7 +34,7 @@ export default class StopWatch extends React.Component {
     return (
       <>
       <div className="stopwatch-container">
-        <div className="stopwatch">
+        <div className="stopwatch" onClick={ this.handleReset }>
           <p className="stopwatch-count">{ this.state.count }</p>
         </div>
         <div className="stopwatch-toggle">
