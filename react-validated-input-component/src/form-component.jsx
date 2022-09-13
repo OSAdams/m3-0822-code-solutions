@@ -24,15 +24,7 @@ export default class FormComponent extends React.Component {
   }
 
   render() {
-    // eslint-disable-next-line
-    console.log('----STATE----');
-    // eslint-disable-next-line
-    console.log(this.state);
-    const { password, isValid, message } = this.state;
-    // eslint-disable-next-line
-    console.log('----PASSWORD LENGTH----')
-    // eslint-disable-next-line
-    console.log(password.length)
+    const { isValid, message } = this.state;
     return (
       <div className="form-container">
         <form>
