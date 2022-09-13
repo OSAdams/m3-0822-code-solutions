@@ -1,0 +1,17 @@
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+p.red {
+  width: 100%;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+form {
+  max-width: fit-content;
+}
