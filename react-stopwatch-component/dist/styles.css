@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.stopwatch-container {
+  width: 10rem;
+}
+
+.stopwatch {
+  border: solid black 0.25rem;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stopwatch-count {
+  font-size: 4rem;
+}
+
+.stopwatch-toggle {
+  width: 100%;
+  text-align: center;
+}
+
+i {
+  font-size: 4rem;
+}
+
+.stopwatch,
+.fa {
+  cursor: pointer;
+}
