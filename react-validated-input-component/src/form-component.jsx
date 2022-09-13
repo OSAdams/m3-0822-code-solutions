@@ -14,13 +14,11 @@ export default class FormComponent extends React.Component {
   handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    if (!value) {
-      this.setState({ [name]: value, message: 'A Password is required', isValid: false });
-    } else if (value.length > 0 && value.length <= 7) {
-      this.setState({ [name]: value, message: 'Your password is too short', isValid: false });
-    } else {
-      this.setState({ [name]: value, message: '', isValid: true });
-    }
+    return !value
+      ? this.setState({ [name]: value, message: 'A Password is required', isValid: false })
+      : value.length > 0 && value.length <= 7
+        ? this.setState({ [name]: value, message: 'Your password is too short', isValid: false })
+        : this.setState({ [name]: value, message: '', isValid: true });
   }
 
   render() {
