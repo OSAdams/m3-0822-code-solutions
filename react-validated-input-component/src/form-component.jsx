@@ -5,7 +5,8 @@ export default class FormComponent extends React.Component {
     super(props);
     this.state = {
       password: '',
-      isValidated: false
+      isValid: false,
+      message: 'A password is required.'
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -13,33 +14,12 @@ export default class FormComponent extends React.Component {
   handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    const { password } = this.state;
-    this.setState({ [name]: value });
-    if (password.length > 7) {
-      this.setState({ isValidated: true });
+    if (!value) {
+      this.setState({ [name]: value, message: 'A Password is required.', isValid: false });
+    } else if (value.length > 0 && value.length <= 7) {
+      this.setState({ [name]: value, message: 'Your password is too short', isValid: false });
     } else {
-      this.setState({ isValidated: false });
-    }
-  }
-
-  validatedPassword() {
-    const { isValidated } = this.state;
-    if (!isValidated) {
-      return 'fa-solid fa-x red';
-    } else {
-      return 'fa-sharp fa-solid fa-check green';
-    }
-  }
-
-  passwordAlert() {
-    const { password } = this.state;
-    const inputLength = password.length;
-    if (Boolean(inputLength) && inputLength <= 7) {
-      return 'Your password is too short.';
-    } else if (inputLength > 7) {
-      return '';
-    } else if (!inputLength) {
-      return 'A password is required';
+      this.setState({ [name]: value, message: '', isValid: true });
     }
   }
 
@@ -48,20 +28,25 @@ export default class FormComponent extends React.Component {
     console.log('----STATE----');
     // eslint-disable-next-line
     console.log(this.state);
-    const isValid = this.validatedPassword();
-    const pwAlert = this.passwordAlert();
+    const { password, isValid, message } = this.state;
+    // eslint-disable-next-line
+    console.log('----PASSWORD LENGTH----')
+    // eslint-disable-next-line
+    console.log(password.length)
     return (
       <div className="form-container">
         <form>
+          <div>
           <label htmlFor="password">Password: </label>
-          <input
-            name="password"
-            type="password"
-            id="password"
-            value={ this.state.password }
-            onChange={ this.handleChange } />
-          <i className={ isValid }></i>
-          <p className="red">{ pwAlert }</p>
+            <input
+              name="password"
+              type="password"
+              id="password"
+              value={ this.state.password }
+              onChange={ this.handleChange } />
+            <i className={ !isValid ? 'fa-solid fa-x red' : 'fa-sharp fa-solid fa-check green' }></i>
+            <p className="red">{ message }</p>
+          </div>
         </form>
       </div>
     );
