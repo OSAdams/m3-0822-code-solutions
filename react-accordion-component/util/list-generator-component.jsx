@@ -7,13 +7,16 @@ export default class ListGenerator extends React.Component {
     this.state = {
       propsData: this.props.data
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
     const listData = this.state.propsData;
     const listPoint = listData.map(lib =>
       <li key={ lib.number }>
-        <Accordion title={ lib.title } content={ lib.content } />
+        <Accordion
+          title={ lib.title }
+          content={ lib.content } />
       </li>
     );
     return (
