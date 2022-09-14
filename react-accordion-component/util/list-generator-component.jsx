@@ -17,9 +17,11 @@ export default class ListGenerator extends React.Component {
       </li>
     );
     return (
-      <ul>
-        { listPoint }
-      </ul>
+      <div className="un-list">
+        <ul>
+          { listPoint }
+        </ul>
+      </div>
     );
   }
 }
