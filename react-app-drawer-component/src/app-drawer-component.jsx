@@ -31,8 +31,6 @@ export default class AppDrawer extends React.Component {
   }
 
   render() {
-    // eslint-disable-next-line
-    console.log('app-drawer:', this.state);
     const { isToggled } = this.state;
     if (!isToggled) {
       return (
