@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import ListGenerator from '../util/list-generator-component';
+import loremIpsums from '../data/lorem-ipsums';
 
 class Main extends React.Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className="main">
-        <h3>hello world</h3>
+        <ListGenerator data={ loremIpsums } />
       </div>
     );
   }
