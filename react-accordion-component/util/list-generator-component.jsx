@@ -5,16 +5,30 @@ export default class ListGenerator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      propsData: this.props.data
+      propsData: this.props.data,
+      displayContent: false
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const textContent = event.target.textContent;
+    const { propsData } = this.state;
+    const title = propsData.filter(index => propsData.title === textContent);
+    if (title.title === textContent) {
+      this.setState(prevState => ({
+        displayContent: !prevState.displayContent
+      }));
+    }
   }
 
   render() {
-    const listData = this.state.propsData;
-    const listPoint = listData.map(lib =>
+    const { propsData, displayContent } = this.state;
+    const listPoint = propsData.map(lib =>
       <li key={ lib.number }>
         <Accordion
+          onChange={ this.handleChange }
+          isActive={ displayContent }
           title={ lib.title }
           content={ lib.content } />
       </li>

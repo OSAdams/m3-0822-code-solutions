@@ -13,7 +13,7 @@ export default class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: false,
+      isActive: this.props.displayContent,
       content: this.props.content,
       number: this.props.number,
       title: this.props.title
