@@ -1,11 +1,10 @@
 import React from 'react';
 
-function AcContent(props) {
-  const { content } = props;
+function Content(props) {
   return (
-    <div className="ac-content">
-      <p>{ content }</p>
-    </div>
+      <div className="ac-content">
+        <p>{ props.content }</p>
+      </div>
   );
 }
 
@@ -13,31 +12,27 @@ export default class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: this.props.displayContent,
-      content: this.props.content,
-      number: this.props.number,
-      title: this.props.title
+      data: this.props.data,
+      display: ''
     };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState(prevState => ({
-      isActive: !prevState.isActive
-    }));
   }
 
   render() {
-    const { isActive, content, number, title } = this.state;
+    const { data } = this.state;
+    const renderData = data.map(index => {
+      return (
+        <>
+          <div className='ac-title' key={ index.number }>
+            <h3>{ index.title }</h3>
+          </div>
+          <Content content={ index.content } />
+        </>
+      );
+    }
+    );
     return (
-      <div className="ac-container" key={ number }>
-        <div className="ac-title" onClick={ this.handleClick }>
-          <h2>{ title }</h2>
-        </div>
-        { isActive
-          ? <AcContent content={ content } />
-          : null
-        }
+      <div className='ac-container'>
+        { renderData }
       </div>
     );
   }

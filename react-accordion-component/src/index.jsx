@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ListGenerator from '../util/list-generator-component';
+import Accordion from '../components/accordion-component';
 import loremIpsums from '../data/lorem-ipsums';
 
 class Main extends React.Component {
@@ -14,7 +14,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className="main">
-        <ListGenerator data={ loremIpsums } />
+        <Accordion data={ loremIpsums } />
       </div>
     );
   }
