@@ -30,7 +30,7 @@ export default class Accordion extends React.Component {
     const renderData = data.map(index => {
       return (
         <>
-          <div className='ac-title' key={ index.number }>
+          <div className='ac-title' key={index.number} onClick={this.handleClick}>
             <h3>{ index.title }</h3>
           </div>
           {
@@ -45,7 +45,7 @@ export default class Accordion extends React.Component {
     }
     );
     return (
-      <div className='ac-container' onClick={ this.handleClick }>
+      <div className='ac-container'>
         { renderData }
       </div>
     );
