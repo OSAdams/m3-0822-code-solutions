@@ -1,10 +1,49 @@
 {
-  "week-1": [
-  ],
-  "week-2": [
-    {
-      "player": "Aman-Ra",
-      "images": []
-    }
-  ]
+  "name": "Detroit Lions Images",
+  "description": "Local images displaying the Detroit Lions",
+  "images": {
+    "weekOne": [
+      {
+        "playerName": "Aman-Ra St. Brown",
+        "imageSrc": "../images"
+      }
+    ],
+    "weekTwo": [
+      {
+      "playerName": "Aman-Ra St. Brown",
+      "imageSrc": "../images/week-2-2022/amonra-stbrown-1.png"
+      },
+      {
+        "playerName": "Aiden Hutchinson",
+        "imageSrc": "../images/week-2-2022/aiden-hutchinson-1.png"
+      },
+      {
+        "playerName": "Aiden Hutchinson",
+        "imageSrc": "../images/week-2-2022/aiden-hutchinson-2.png"
+      },
+      {
+        "playerName": "Aiden Hutchinson",
+        "imageSrc": "../images/week-2-2022/aiden-hutchinson-3.png"
+      },
+      {
+        "playerName": "De'Andre Swift",
+        "imageSrc": "../images/week-2-2022/deandre-swift-1.png"
+      },
+      {
+        "playerName": "De'Andre Swift",
+        "imageSrc": "../images/week-2-2022/deandre-swift-2.png"
+      },
+      {
+        "playerName": "De'Andre Swift",
+        "imageSrc": "../images/week-2-2022/deandre-swift-3.png"
+      },
+      {
+        "playerName": "Jeff Okudah",
+        "imageSrc": "../images/week-2-2022/jeff-okudah-1.png"
+      },{
+        "playerName": "Jeff Okudah",
+        "imageSrc": "../images/week-2-2022/jeff-okudah-2.png"
+      }
+    ]
+  }
 }

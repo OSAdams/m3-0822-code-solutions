@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Carousel from '../components/carousel';
+import imagesData from '../data/det-lions.json';
 
 class Main extends React.Component {
   render() {
     return (
-      <div className='main'>
-        <h1>Hello World</h1>
+      <div className='main flex'>
+        <Carousel imgData={ imagesData.images } />
       </div>
     );
   }

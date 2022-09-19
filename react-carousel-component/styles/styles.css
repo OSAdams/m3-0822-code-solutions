@@ -1,4 +1,46 @@
 .main {
   background-color: #b0b7bc;
   height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  box-shadow:
+    0 10px 20px rgb(0 0 0 / 19%),
+    0 6px 6px rgb(0 0 0 / 23%);
+  max-width: 1400px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.icon-container {
+  position: absolute;
+  transition: background-color 700ms, color 700ms;
+  cursor: pointer;
+  height: 100%;
+  width: 100px;
+  top: 0;
+  color: #fefefe;
+  justify-content: center;
+  align-items: center;
+  border-radius: inherit;
+}
+
+.next {
+  right: 0;
+}
+
+.fa-solid {
+  opacity: 0.7;
+  font-size: 2rem;
+}
+
+.icon-container:hover {
+  background-color: #fefefe94;
+  color: #0e0e0e;
+}
+
+.flex {
+  display: flex;
 }
