@@ -12,37 +12,35 @@ export default class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clickContent: ''
+      currentID: null
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(event) {
-    const textContent = event.target.textContent;
-    const { clickContent } = this.state;
-    if (clickContent !== textContent) { this.setState({ clickContent: textContent }); }
-    if (clickContent === textContent) { this.setState({ clickContent: '' }); }
+  handleClick(id) {
+    const targetID = id;
+    const { currentID } = this.state;
+    currentID === targetID
+      ? this.setState({ currentID: null })
+      : this.setState({ currentID: targetID });
   }
 
   render() {
-    const { clickContent } = this.state;
+    const { currentID } = this.state;
     const { data } = this.props;
-    const renderData = data.map(index => {
-      return (
-        <>
-          <div className='ac-title' key={index.number} onClick={this.handleClick}>
+    const renderData = data.map(index => (
+        <div key={index.id}>
+          <div className='ac-title' onClick={() => this.handleClick(index.id) }>
             <h3>{ index.title }</h3>
           </div>
           {
-          clickContent === index.title
+          currentID === index.id
             ? <Content content={index.content} />
-            : clickContent !== index.title
-              ? ''
-              : ''
+            : currentID !== index.id
+              ? null
+              : null
           }
-        </>
-      );
-    }
+        </div>
+    )
     );
     return (
       <div className='ac-container'>
