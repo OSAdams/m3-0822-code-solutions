@@ -7,51 +7,45 @@ function Image(props) {
   );
 }
 
-function CircleIcon(props) {
-  const { stateID, imageID } = props;
-  imageID === stateID
-    ? <i className="fa-solid fa-circle" key={imageID} id={imageID}></i>
-    : <i className="fa-solid fa-circle" key={imageID} id={imageID}></i>;
-}
-
 export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       iterator: 0,
-      checkID: ''
+      checkID: '001'
     };
     this.previousImage = this.previousImage.bind(this);
     this.nextImage = this.nextImage.bind(this);
     this.loopImages = this.loopImages.bind(this);
     this.intervalID = setInterval(this.loopImages, 3000);
+    this.circleIconClick = this.circleIconClick.bind(this);
   }
 
   previousImage() {
     const { iterator } = this.state;
-    const imgArrayLength = this.props.imgData.weekTwo.length;
+    const imageArray = this.props.imgData.weekTwo;
     this.resetInterval();
     iterator === 0
-      ? this.setState({ iterator: imgArrayLength - 1 })
-      : this.setState({ iterator: iterator - 1 });
+      ? this.setState({ iterator: imageArray.length - 1, checkID: imageArray[imageArray.length - 1].id })
+      : this.setState({ iterator: iterator - 1, checkID: imageArray[iterator - 1].id });
   }
 
   nextImage() {
     const { iterator } = this.state;
-    const imgArrayLength = this.props.imgData.weekTwo.length;
+    const imageArray = this.props.imgData.weekTwo;
     this.resetInterval();
-    iterator === imgArrayLength - 1
-      ? this.setState({ iterator: 0 })
-      : this.setState({ iterator: iterator + 1 });
+    iterator === imageArray - 1
+      ? this.setState({ iterator: 0, checkID: imageArray[0].id })
+      : this.setState({ iterator: iterator + 1, checkID: imageArray[iterator + 1].id });
   }
 
   loopImages() {
     const { iterator } = this.state;
-    const imgArrayLength = this.props.imgData.weekTwo.length;
+    const imageArray = this.props.imgData.weekTwo;
     this.resetInterval();
-    iterator < imgArrayLength - 1
-      ? this.setState({ iterator: iterator + 1 })
-      : this.setState({ iterator: 0 });
+    iterator < imageArray.length - 1
+      ? this.setState({ iterator: iterator + 1, checkID: imageArray[iterator + 1].id })
+      : this.setState({ iterator: 0, checkID: imageArray[0].id });
   }
 
   resetInterval() {
@@ -59,11 +53,29 @@ export default class Carousel extends React.Component {
     this.intervalID = setInterval(this.loopImages, 3000);
   }
 
+  circleIconClick(event) {
+    this.resetInterval();
+    this.setState({ iterator: parseInt(event.target.id) - 1, checkID: event.target.id });
+  }
+
+  circleRender(array) {
+    const { checkID } = this.state;
+    const imageArray = this.props.imgData.weekTwo;
+    const circleIcons = imageArray.map(index => {
+      return (
+        <i onClick={ this.circleIconClick } id={ index.id } key={ index.id } className={
+          checkID === index.id
+            ? 'fa-solid fa-circle'
+            : 'fa-regular fa-circle'
+        } />
+      );
+    });
+    return circleIcons;
+  }
+
   render() {
-    const { iterator, checkID } = this.state;
+    const { iterator } = this.state;
     const imageData = this.props.imgData.weekTwo;
-    // eslint-disable-next-line no-console
-    console.log(imageData);
     return (
       <div className="carousel-container flex">
         <div className="icon-container previous flex" onClick={this.previousImage}>
@@ -75,7 +87,7 @@ export default class Carousel extends React.Component {
         </div>
         <div className="circle-icon-container">
           {
-            imageData.map(imgIndex => <CircleIcon key={imgIndex.id} imageID={imgIndex.id} stateID={checkID} />)
+            this.circleRender(imageData)
           }
         </div>
       </div>
