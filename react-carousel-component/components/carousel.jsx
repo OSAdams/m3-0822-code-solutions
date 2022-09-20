@@ -70,11 +70,11 @@ export default class Carousel extends React.Component {
         <h2>{ `${playerName} ${description}` }</h2>
         <div className="image-container flex">
           <div className="icon-container flex" id="previous" onClick={this.changeImage}>
-            <i className="fa-solid fa-chevron-left" />
+            <i className="fa-solid fa-chevron-left" id="previous" onClick={this.changeImage}/>
           </div>
           <img className="carousel-image" src={ imageSrc } id={ id } />
           <div className="icon-container next flex" id="next" onClick={this.changeImage}>
-            <i className="fa-solid fa-chevron-right" />
+            <i className="fa-solid fa-chevron-right" id="next" onClick={this.changeImage} />
           </div>
           <div className="circle-icon-container">
             {
