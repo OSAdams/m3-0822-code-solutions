@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Carousel from '../components/carousel';
-import imagesData from '../data/det-lions.json';
+import detLions from '../data/det-lions.json';
 
 class Main extends React.Component {
   render() {
     return (
       <div className='main flex'>
-        <Carousel imgData={ imagesData.images } />
+        <Carousel imgData={ detLions.images } />
       </div>
     );
   }

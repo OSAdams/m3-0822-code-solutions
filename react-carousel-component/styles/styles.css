@@ -39,6 +39,22 @@
   color: #0e0e0e;
 }
 
+.circle-icon-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.circle-icon-contaier i {
+  cursor: pointer;
+  transition: color 700ms;
+  color: #fefefe77;
+}
+
+.circle-icon-container i:hover {
+  color: #fefefe;
+}
+
 .flex {
   display: flex;
 }
