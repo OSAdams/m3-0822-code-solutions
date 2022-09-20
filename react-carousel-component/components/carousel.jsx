@@ -1,12 +1,5 @@
 import React from 'react';
 
-function Image(props) {
-  const { imageSrc, playerName } = props.img;
-  return (
-    <img src={ imageSrc } alt={ `${playerName} of the Detroit Lions` } />
-  );
-}
-
 export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
@@ -14,29 +7,26 @@ export default class Carousel extends React.Component {
       iterator: 0,
       checkID: '001'
     };
-    this.previousImage = this.previousImage.bind(this);
-    this.nextImage = this.nextImage.bind(this);
+    this.changeImage = this.changeImage.bind(this);
     this.loopImages = this.loopImages.bind(this);
-    this.intervalID = setInterval(this.loopImages, 3000);
+    this.intervalID = setInterval(this.loopImages, 4000);
     this.circleIconClick = this.circleIconClick.bind(this);
   }
 
-  previousImage() {
+  changeImage(event) {
     const { iterator } = this.state;
     const imageArray = this.props.imgData.weekTwo;
+    const { id } = event.target;
     this.resetInterval();
-    iterator === 0
-      ? this.setState({ iterator: imageArray.length - 1, checkID: imageArray[imageArray.length - 1].id })
-      : this.setState({ iterator: iterator - 1, checkID: imageArray[iterator - 1].id });
-  }
-
-  nextImage() {
-    const { iterator } = this.state;
-    const imageArray = this.props.imgData.weekTwo;
-    this.resetInterval();
-    iterator === imageArray - 1
-      ? this.setState({ iterator: 0, checkID: imageArray[0].id })
-      : this.setState({ iterator: iterator + 1, checkID: imageArray[iterator + 1].id });
+    if (id === 'next') {
+      iterator === imageArray.length - 1
+        ? this.setState({ iterator: 0, checkID: imageArray[0].id })
+        : this.setState({ iterator: iterator + 1, checkID: imageArray[iterator + 1].id });
+    } else if (id === 'previous') {
+      iterator === 0
+        ? this.setState({ iterator: imageArray.length - 1, checkID: imageArray[imageArray.length - 1].id })
+        : this.setState({ iterator: iterator - 1, checkID: imageArray[iterator - 1].id });
+    }
   }
 
   loopImages() {
@@ -50,7 +40,7 @@ export default class Carousel extends React.Component {
 
   resetInterval() {
     clearInterval(this.intervalID);
-    this.intervalID = setInterval(this.loopImages, 3000);
+    this.intervalID = setInterval(this.loopImages, 4000);
   }
 
   circleIconClick(event) {
@@ -60,13 +50,11 @@ export default class Carousel extends React.Component {
 
   circleRender(array) {
     const { checkID } = this.state;
-    const imageArray = this.props.imgData.weekTwo;
+    const imageArray = array;
     const circleIcons = imageArray.map(index => {
       return (
         <i onClick={ this.circleIconClick } id={ index.id } key={ index.id } className={
-          checkID === index.id
-            ? 'fa-solid fa-circle'
-            : 'fa-regular fa-circle'
+          checkID === index.id ? 'fa-solid fa-circle' : 'fa-regular fa-circle'
         } />
       );
     });
@@ -76,19 +64,23 @@ export default class Carousel extends React.Component {
   render() {
     const { iterator } = this.state;
     const imageData = this.props.imgData.weekTwo;
+    const { playerName, description, imageSrc, id } = imageData[iterator];
     return (
-      <div className="carousel-container flex">
-        <div className="icon-container previous flex" onClick={this.previousImage}>
-          <i className="fa-solid fa-chevron-left" />
-        </div>
-        <Image className="carousel-image" img={ imageData[iterator] } />
-        <div className="icon-container next flex" onClick={this.nextImage}>
-          <i className="fa-solid fa-chevron-right" />
-        </div>
-        <div className="circle-icon-container">
-          {
-            this.circleRender(imageData)
-          }
+      <div className="carousel-container">
+        <h2>{ `${playerName} ${description}` }</h2>
+        <div className="image-container flex">
+          <div className="icon-container flex" id="previous" onClick={this.changeImage}>
+            <i className="fa-solid fa-chevron-left" />
+          </div>
+          <img className="carousel-image" src={ imageSrc } id={ id } />
+          <div className="icon-container next flex" id="next" onClick={this.changeImage}>
+            <i className="fa-solid fa-chevron-right" />
+          </div>
+          <div className="circle-icon-container">
+            {
+              this.circleRender(imageData)
+            }
+          </div>
         </div>
       </div>
     );

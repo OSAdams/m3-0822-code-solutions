@@ -6,11 +6,16 @@
 }
 
 .carousel-container {
+  text-align: center;
+}
+
+.image-container {
   box-shadow:
     0 10px 20px rgb(0 0 0 / 19%),
     0 6px 6px rgb(0 0 0 / 23%);
   max-width: 1400px;
   position: relative;
+  margin-top: 2rem;
 }
 
 i:hover {
@@ -19,7 +24,7 @@ i:hover {
 
 .icon-container {
   position: absolute;
-  transition: background-color 700ms, color 700ms;
+  transition: background-color 300ms, color 300ms;
   cursor: pointer;
   height: 100%;
   width: 100px;
@@ -35,11 +40,15 @@ i:hover {
 
 .fa-solid {
   opacity: 0.7;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .fa-regular {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.fa-regular:hover {
+  font-size: 1.4rem;
 }
 
 .icon-container:hover {
@@ -54,9 +63,13 @@ i:hover {
   text-align: center;
 }
 
+.icon-container:active {
+  background-color: #fefefe;
+}
+
 .circle-icon-contaier i {
   cursor: pointer;
-  transition: color 700ms;
+  transition: color 300ms;
   color: #fefefe77;
 }
 
