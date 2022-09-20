@@ -15,7 +15,7 @@ export default class Carousel extends React.Component {
 
   changeImage(event) {
     const { iterator } = this.state;
-    const imageArray = this.props.imgData.weekTwo;
+    const imageArray = this.props.imgData;
     const { id } = event.target;
     this.resetInterval();
     if (id === 'next') {
@@ -31,7 +31,7 @@ export default class Carousel extends React.Component {
 
   loopImages() {
     const { iterator } = this.state;
-    const imageArray = this.props.imgData.weekTwo;
+    const imageArray = this.props.imgData;
     this.resetInterval();
     iterator < imageArray.length - 1
       ? this.setState({ iterator: iterator + 1, checkID: imageArray[iterator + 1].id })
@@ -63,7 +63,7 @@ export default class Carousel extends React.Component {
 
   render() {
     const { iterator } = this.state;
-    const imageData = this.props.imgData.weekTwo;
+    const imageData = this.props.imgData;
     const { playerName, description, imageSrc, id } = imageData[iterator];
     return (
       <div className="carousel-container">

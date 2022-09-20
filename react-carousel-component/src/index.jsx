@@ -7,7 +7,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className='main flex'>
-        <Carousel imgData={ detLions.images } />
+        <Carousel imgData={ detLions.images.weekTwo } />
       </div>
     );
   }
