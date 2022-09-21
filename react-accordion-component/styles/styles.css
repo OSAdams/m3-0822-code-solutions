@@ -1,0 +1,42 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.ac-container {
+  width: 30rem;
+}
+
+.ac-title {
+  cursor: pointer;
+  text-align: center;
+  box-shadow:
+    0 10px 20px rgb(0 0 0 / 19%),
+    0 6px 6px rgb(0 0 0 / 23%);
+  background-color: rgb(0 0 0 / 15.1%);
+  padding: 0.75rem;
+  transition: box-shadow 700ms;
+}
+
+.ac-content {
+  padding: 0.6rem;
+  background:
+    linear-gradient(
+      to bottom,
+      rgb(223 223 223),
+      #fefefe
+    );
+  box-shadow:
+    0 10px 20px rgb(0 0 0 / 19%),
+    0 6px 6px rgb(0 0 0 / 23%);
+}
+
+.ac-title:hover {
+  box-shadow:
+    0 10px 20px rgb(0 0 0 / 52.7%),
+    0 6px 6px rgb(0 0 0 / 61.6%);
+}
+
+.ac-container div {
+  margin-top: 0.5rem;
+}
