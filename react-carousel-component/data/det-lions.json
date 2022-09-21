@@ -1,0 +1,63 @@
+{
+  "name": "Detroit Lions Image Library",
+  "year": "2022",
+  "description": "Images of players sorted by weeks",
+  "images": {
+    "weekOne": [],
+    "weekTwo": [
+      {
+        "id": "001",
+        "playerName": "Aman-Ra St. Brown",
+        "imageSrc": "../images/week-2-2022/amonra-stbrown-1.png",
+        "description": "making a chatch in the open field going for a touchdown."
+      },
+      {
+        "id": "002",
+        "playerName": "Aiden Hutchinson",
+        "imageSrc": "../images/week-2-2022/aiden-hutchinson-1.png",
+        "description": "getting up after tackling the ball carrier for loss."
+      },
+      {
+        "id": "003",
+        "playerName": "Aiden Hutchinson",
+        "imageSrc": "../images/week-2-2022/aiden-hutchinson-2.png",
+        "description": "lining up waiting for the snap."
+      },
+      {
+        "id": "004",
+        "playerName": "Aiden Hutchinson",
+        "imageSrc": "../images/week-2-2022/aiden-hutchinson-3.png",
+        "description": "after a QB sack.."
+      },
+      {
+        "id": "005",
+        "playerName": "De'Andre Swift",
+        "imageSrc": "../images/week-2-2022/deandre-swift-1.png",
+        "description": "going for a touchdown in open field."
+      },
+      {
+        "id": "006",
+        "playerName": "De'Andre Swift",
+        "imageSrc": "../images/week-2-2022/deandre-swift-2.png",
+        "description": "breaking the line of scrimmage going for a touchdown."
+      },
+      {
+        "id": "007",
+        "playerName": "De'Andre Swift",
+        "imageSrc": "../images/week-2-2022/deandre-swift-3.png",
+        "description": "getting set."
+      },
+      {
+        "id": "008",
+        "playerName": "Jeff Okudah",
+        "imageSrc": "../images/week-2-2022/jeff-okudah-1.png",
+        "description": "covering McLaurin, WR and Captain of WAS."
+      },{
+        "id": "009",
+        "playerName": "Jeff Okudah",
+        "imageSrc": "../images/week-2-2022/jeff-okudah-2.png",
+        "description": "reading the offense preparing for the snap."
+      }
+    ]
+  }
+}
