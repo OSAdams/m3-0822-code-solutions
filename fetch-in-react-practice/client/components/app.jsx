@@ -7,7 +7,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
+      todos: [],
+      json: []
     };
     this.addTodo = this.addTodo.bind(this);
     this.toggleCompleted = this.toggleCompleted.bind(this);
@@ -19,6 +20,10 @@ export default class App extends React.Component {
      * Then 😉, once the response JSON is received and parsed,
      * update state with the received todos.
      */
+    fetch('/api/todos')
+      .then(res => res.json())
+      .then(todos => this.setState({ todos }))
+      .catch(err => console.error({ error: err }));
   }
 
   addTodo(newTodo) {
@@ -38,6 +43,13 @@ export default class App extends React.Component {
     * TIP: Use Array.prototype.concat to create a new array containing the contents
     * of the old array, plus the object returned by the server.
     */
+    fetch('/api/todos', { method: 'post' })
+      .then(res => res.json())
+      .then(json => {
+        const currentTodos = this.state.todos;
+        currentTodos.prototype.concat(json);
+        this.setState({ json: currentTodos });
+      });
   }
 
   toggleCompleted(todoId) {
