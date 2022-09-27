@@ -56,7 +56,7 @@ app.post('/api/grades', (req, res, next) => {
 app.get('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = Number(req.params.gradeId);
   if (!Number.isInteger(gradeId) || gradeId < 1) {
-    throw new ClientError(400, 'grade must be a positive integer');
+    throw new ClientError(400, 'gradeId must be a positive integer');
   }
   const sql = `
     select *
@@ -81,7 +81,7 @@ app.get('/api/grades/:gradeId', (req, res, next) => {
 app.put('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = Number(req.params.gradeId);
   if (!Number.isInteger(gradeId) || gradeId < 1) {
-    throw new ClientError(400, 'grade must be a positive integer');
+    throw new ClientError(400, 'gradeId must be a positive integer');
   }
   const { name, course } = req.body;
   const score = Number(req.body.score);
@@ -117,7 +117,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
 app.delete('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = Number(req.params.gradeId);
   if (!Number.isInteger(gradeId) || gradeId < 1) {
-    throw new ClientError(400, 'grade must be a positive integer');
+    throw new ClientError(400, 'gradeId must be a positive integer');
   }
   const sql = `
     delete from "grades"
