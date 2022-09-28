@@ -34,6 +34,7 @@ app.post('/api/grades', (req, res, next) => {
   const { name, course } = req.body;
   const score = Number(req.body.score);
   if (!Number.isInteger(score) || score < 0 || score > 100) {
+    // no other line of code will execute if you throw an error
     throw new ClientError(400, 'score must be an integer between 0 and 100');
   }
   if (!name || !course) {
