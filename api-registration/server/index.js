@@ -33,12 +33,11 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       RETURNING "userId", username, "createdAt"
       `;
       const params = [username, hashedPassword];
-      db.query(sql, params)
-        .then(newAccount => {
-          const [{ userId, username, createdAt }] = newAccount.rows;
-          res.status(201).json({ userId, username, createdAt });
-        })
-        .catch(err => next(err));
+      return db.query(sql, params);
+    })
+    .then(newAccount => {
+      const [user] = newAccount.rows;
+      res.status(201).json(user);
     })
     .catch(err => next(err));
   /**
