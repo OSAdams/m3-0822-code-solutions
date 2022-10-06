@@ -29,7 +29,8 @@
 - By default, we will display the sign-in page. The user will input a username
 - and password which will update the state in AuthForm. When the user presses
 - enter or clicks submit, we will send a fetch request with the state value
-- assigned to the body to the server.
+- assigned to the body to the server. We will save the token to the users local
+- storage.
 
 ## SERVER
 
@@ -41,5 +42,38 @@
 ## DATABASE
 
 - The hashedPassword and username are sent to the database and we check to see
-- if they are matching. If they match, the account is authorized and we create a
+- if they are matching. If they match, the account is verified and we create a
 - token.
+
+
+# USER CAN STAY SIGNED IN
+
+## CLIENT
+
+- When our home page loads, we will check and see if there is a token in local
+- storage. If there is a token in local storage, we decode the token and set the
+- state to the user.
+
+## SERVER
+
+- We send a post request to the server to match username and userId.
+
+## DATABASE
+
+- The database is used to compare the users username and hashedPassword.
+
+
+# USER CAN SIGN OUT
+
+## CLIENT
+
+- The user sets the state to null and removes the token from local storage
+
+## SERVER
+
+- The user will be asked to sign in or register because there isn't a username
+- or hashedPassword being sent to the server to match in the database.
+
+## DATABASE
+
+- N/A
