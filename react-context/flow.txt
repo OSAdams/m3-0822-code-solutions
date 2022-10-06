@@ -2,26 +2,24 @@
 
 ## CLIENT
 
-- When the user inputs a username and password,
-- the state is updated to the user input. After the request
-- is sent to the server, the client receives a response. If
-- the action is to sign up, the user is redirected to a sign-in
+- When the user inputs a username and password, the state is updated to the user
+- input. After the request is sent to the server, the client receives a
+- response. If the action is to sign up, the user is redirected to a sign-in
 - page.
 
 ## SERVER
 
-- When the user presses enter or clicks the submit button,
-- a fetch request is sent to the server with the state
-- assigned to the body. This will send a post method to the server
-- creating a new account. If the username is unique, and does not already exist,
-- we will inject the username and hashed password to the database. Otherwise we will
-- catch the error and use our error middleware
+- When the user presses enter or clicks the submit button, a fetch request is
+-sent to the server with the state assigned to the body. This will send a post
+- method to the server creating a new account. If the username is unique, and
+- does not already exist, we will inject the username and hashed password to the
+- database. Otherwise we will catch the error and use our error middleware.
 
 ## DATABASE
 
 - Our database holds a userId, createdAt, unique username, and hashedPassword.
-- If the username submitted is unique, the username and hashedPassword will be injected
-- into the server. The account now exists in the database.
+- If the username submitted is unique, the username and hashedPassword will
+- be injected into the server. The account now exists in the database.
 
 
 # USER CAN SIGN IN
@@ -30,12 +28,18 @@
 
 - By default, we will display the sign-in page. The user will input a username
 - and password which will update the state in AuthForm. When the user presses
-- enter or clicks submit, we will send a fetch request with the state value assigned
-- to the body to the server.
+- enter or clicks submit, we will send a fetch request with the state value
+- assigned to the body to the server.
 
 ## SERVER
 
-- If the username and password do not exist, we will throw an error to the user.
-- Otherwise
+- If the username does not exist or the hashedPassword does not match, we will
+- throw an error to the user. If the username and hashedPassword is verified by
+- matching the username and hashedPassword. We will create a payload object of
+- the userId and username. We then take the payload object and create a token.
 
 ## DATABASE
+
+- The hashedPassword and username are sent to the database and we check to see
+- if they are matching. If they match, the account is authorized and we create a
+- token.
